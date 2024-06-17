@@ -1,23 +1,19 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Hello from './presentation/Hello';
+import HelloViewModel from './presentation/HelloViewModel';
+import DependenciesResolver from './di/DependenciesResolver';
 
 function App() {
+  const viewModel = new HelloViewModel(DependenciesResolver.getNameUserCase);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <main>
+          <Hello viewModel={viewModel} />
+        </main>
       </header>
     </div>
   );
