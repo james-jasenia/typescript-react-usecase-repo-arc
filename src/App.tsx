@@ -6,7 +6,7 @@ import DependenciesResolver from './di/DependenciesResolver';
 import ProductCard from './presentation/ProductCard';
 
 function App() {
-  const viewModel = new HelloViewModel(DependenciesResolver.getNameUserCase);
+  const viewModel = new HelloViewModel(DependenciesResolver.getProductUseCase);
 
   let products = DependenciesResolver.getProductUseCase.execute();
 
@@ -14,10 +14,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <main>
+          <ProductCard></ProductCard>
           <Hello viewModel={viewModel} />
-          {products.map((product, index) => (
-            <ProductCard name={product.name}></ProductCard>
-          ))}
         </main>
       </header>
     </div>

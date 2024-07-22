@@ -1,15 +1,15 @@
-import GetNameUseCase from "../domain/use cases/GetNameUseCase";
+import GetProductUseCase from "../domain/use cases/GetProductUseCase";
 
 class HelloViewModel {
 
-    private getNameUseCase: GetNameUseCase
+    private getProductUseCase: GetProductUseCase
 
-    constructor(getNameUseCase: GetNameUseCase) {
-        this.getNameUseCase = getNameUseCase
+    constructor(getProductUseCase: GetProductUseCase) {
+        this.getProductUseCase = getProductUseCase
     }
 
-    getName(): string {
-        return this.getNameUseCase.execute();
+    async getName(): Promise<string> {
+        return await this.getProductUseCase.execute()
     }
 }
 

@@ -1,15 +1,12 @@
-import UserRepository from "../data/UserRepository";
-import UserRepositoryImpl from "../data/UserRepositoryImpl";
-import GetNameUseCase from "../domain/use cases/GetNameUseCase";
-import GetNameUseCaseImpl from "../domain/use cases/GetNameUseCaseImpl";
+import ProductRepository from "../data/repositories/ProductRepository";
+import ProductRepositoryImpl from "../data/repositories/ProductRepositoryImpl";
 import GetProductUseCase from "../domain/use cases/GetProductUseCase";
 import GetProductUseCaseImpl from "../domain/use cases/GetProductUseCaseImpl";
 
 class DependenciesResolver {
 
-    private static userRepository: UserRepository = new UserRepositoryImpl();
-    public static getNameUserCase: GetNameUseCase = new GetNameUseCaseImpl(this.userRepository);
-    public static getProductUseCase: GetProductUseCase = new GetProductUseCaseImpl();
+    private static productRepository: ProductRepository = new ProductRepositoryImpl();
+    public static getProductUseCase: GetProductUseCase = new GetProductUseCaseImpl(DependenciesResolver.productRepository);
 
 }
 

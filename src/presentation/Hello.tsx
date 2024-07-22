@@ -8,7 +8,7 @@ type HelloProps = {
 const Hello: React.FC<HelloProps> = ({ viewModel }) => {
     return (
         <div>
-            <h1>Hello, {viewModel.getName()}!</h1>
+            <h1>Hello</h1>
         </div>
     );
 };

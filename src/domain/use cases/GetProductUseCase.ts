@@ -1,7 +1,7 @@
-import Product from "./Product";
+import Product from "../model/Product";
 
 interface GetProductUseCase {
-    execute(): Product[]
+    execute(): Promise<string>
 }
 
 export default GetProductUseCase;

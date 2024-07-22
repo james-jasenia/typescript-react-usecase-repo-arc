@@ -1,17 +1,17 @@
+import ProductRepository from "../../data/repositories/ProductRepository";
 import GetProductUseCase from "./GetProductUseCase";
-import Product from "./Product";
+import Product from "../model/Product";
 
 class GetProductUseCaseImpl implements GetProductUseCase {
-    execute(): Product[] {
-        const product1: Product = {
-            name: "Samsung S3"
-        }
 
-        const product2: Product = {
-            name: "iPhone"
-        }
+    private repository: ProductRepository;
 
-        return [product1, product2]
+    constructor(repository: ProductRepository) {
+        this.repository = repository
+    }
+
+    async execute(): Promise<string> {
+        return this.repository.getProductName();
     }
 }
 
